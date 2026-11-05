@@ -15,7 +15,6 @@ const articleDescription =
   "Descubra quais equipamentos comprar para fazer café especial em casa sem gastar muito. Compare V60, prensa manual, moedor e acessórios essenciais.";
 
 export const metadata: Metadata = {
-  // "absolute" evita acrescentar " | Navier" e estourar ~60 caracteres no Google
   title: { absolute: articleTitle },
   description: articleDescription,
   alternates: {
@@ -72,12 +71,7 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    "@id": `${siteUrl}/#organization`,
-    name: "Navier",
-    url: siteUrl,
-    logo: {
-      "@type": "ImageObject",
-      url: `${siteUrl}/og-image.png`,
+    "@id": `${siteUrl}/#organization`, name: "Navier", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/og-image.png`,
     },
   },
 };
@@ -356,6 +350,15 @@ export default function KitBasicoCafeEspecialPage() {
             </p>
           </section>
 
+          <section id="chaleira" className="mb-12">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
+              5. Chaleira de bico fino: controle do fluxo de água
+            </h2>
+            <p className="mb-4">
+              A chaleira de bico fino, também conhecida como pescoço de ganso, facilita o controle da direção e da vazão da água durante o preparo no V60. Ela não é indispensável para começar: uma chaleira comum também permite preparar café, desde que você despeje a água com cuidado e de maneira gradual.
+            </p>
+          </section>
+
           <section id="receita" className="mb-12">
             <h2 className="text-3xl font-serif text-navier-green mb-6">
               Receita simples para seu primeiro café
@@ -406,7 +409,7 @@ export default function KitBasicoCafeEspecialPage() {
               rel="noopener noreferrer"
               className="bg-navier-peach text-navier-green font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
             >
-              Filtros V60 Original
+              Filtros V60 Navier
             </a>
             <a
               href="https://www.mercadolivre.com.br/cafeteira-portatil-manual-pressao-tipo-aeropress--filtros/up/MLBU5688554314?pdp_filters=item_id:MLB7881402892"

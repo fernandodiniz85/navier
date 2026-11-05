@@ -15,7 +15,6 @@ const articleDescription =
   "Descubra por que moer café na hora preserva melhor os aromas, como o frescor influencia a extração e como preparar um café melhor em casa ou durante viagens.";
 
 export const metadata: Metadata = {
-  // "absolute" evita acrescentar " | Navier" e estourar ~60 caracteres no Google
   title: { absolute: articleTitle },
   description: articleDescription,
   alternates: {
@@ -311,7 +310,7 @@ export default function CafeEmGraosOuMoidoPage() {
               rel="noopener noreferrer"
               className="bg-navier-peach text-navier-green font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
             >
-              Filtros V60 Original
+              Filtros V60 Navier
             </a>
             <a
               href="https://www.mercadolivre.com.br/cafeteira-portatil-manual-pressao-tipo-aeropress--filtros/up/MLBU5688554314?pdp_filters=item_id:MLB7881402892"

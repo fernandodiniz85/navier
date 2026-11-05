@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Footer from "../../components/Footer";
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,8 +22,10 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         </div>
       </header>
 
-      {/* Conteúdo principal: as páginas filhas NÃO devem ter outro <main> */}
+      {/* Conteúdo principal */}
       <main className="flex-grow">{children}</main>
+
+      <Footer />
     </div>
   );
 }

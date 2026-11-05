@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-navier-green: #1F5455;
   --color-navier-sage: #8FA98C;
   --color-navier-peach: #EABEA9;
   --color-navier-bg: #F9F9F9;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
 :root {
@@ -17,7 +20,7 @@ body {
   color: var(--foreground);
 }
 
-/* Botão de contorno reutilizável (substitui a classe repetida em vários componentes) */
+/* Botão de contorno reutilizável. */
 @utility btn-outline {
   display: inline-block;
   border: 1px solid var(--color-navier-green);

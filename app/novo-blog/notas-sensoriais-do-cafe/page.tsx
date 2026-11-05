@@ -15,7 +15,6 @@ const articleDescription =
   "Entenda as notas sensoriais do café especial, descubra a diferença entre sabores achocolatados e frutados e aprenda a treinar seu paladar.";
 
 export const metadata: Metadata = {
-  // "absolute" evita acrescentar " | Navier" e estourar ~60 caracteres no Google
   title: { absolute: articleTitle },
   description: articleDescription,
   alternates: {
@@ -327,13 +326,13 @@ export default function NotasSensoriaisDoCafePage() {
             <p className="mb-4">
               Você não precisa ser barista. O mais importante é provar com atenção e construir referências.
             </p>
-            <ul className="list-decimal pl-6 mb-6 space-y-3">
+            <ol className="list-decimal pl-6 mb-6 space-y-3">
               <li><strong>Sinta o aroma antes de provar:</strong> Observe o aroma do pó seco e quando a água entra em contato.</li>
               <li><strong>Prove na temperatura certa:</strong> Deixe esfriar um pouco. A percepção sensorial muda.</li>
               <li><strong>Observe o aroma durante o gole:</strong> Parte da experiência acontece quando os compostos chegam ao nariz pelo fundo da boca.</li>
               <li><strong>Preste atenção à finalização:</strong> Depois de engolir, quais sensações permanecem?</li>
               <li><strong>Compare:</strong> Prepare dois cafés com receitas semelhantes e prove em sequência.</li>
-            </ul>
+            </ol>
           </section>
 
           <section aria-labelledby="faq" className="mb-12">
@@ -373,7 +372,7 @@ export default function NotasSensoriaisDoCafePage() {
               rel="noopener noreferrer"
               className="bg-navier-peach text-navier-green font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
             >
-              Filtros V60 Original
+              Filtros V60 Navier
             </a>
             <a
               href="https://www.mercadolivre.com.br/cafeteira-portatil-manual-pressao-tipo-aeropress--filtros/up/MLBU5688554314?pdp_filters=item_id:MLB7881402892"

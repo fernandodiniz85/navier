@@ -2,12 +2,38 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./data";
 
+const siteUrl = "https://www.navierpremium.com.br";
+const blogTitle = "Blog de Café Especial: Guias de V60, Moagem e Sabores";
+const blogDesc =
+  "Guias práticos para preparar café especial em casa: método V60, moagem, notas sensoriais e como montar seu kit básico de equipamentos.";
+
 export const metadata: Metadata = {
-  title: { absolute: "Blog de Café Especial: Guias de V60, Moagem e Sabores" },
-  description:
-    "Guias práticos para preparar café especial em casa: método V60, moagem, notas sensoriais e como montar seu kit básico de equipamentos.",
+  title: { absolute: blogTitle },
+  description: blogDesc,
   alternates: {
-    canonical: "https://www.navierpremium.com.br/novo-blog",
+    canonical: `${siteUrl}/novo-blog`,
+  },
+  openGraph: {
+    title: blogTitle,
+    description: blogDesc,
+    url: `${siteUrl}/novo-blog`,
+    siteName: "Navier",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blog Navier: guias de café especial",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: blogTitle,
+    description: blogDesc,
+    images: ["/og-image.png"],
   },
 };
 
@@ -22,7 +48,7 @@ export default function BlogIndex() {
         {posts.map((post) => (
           <article
             key={post.id}
-            className="bg-white p-8 rounded-sm shadow-sm border border-navier-peach/20 hover:border-navier-sage/50 transition-colors"
+            className="bg-white p-8 rounded-sm shadow-sm border border-navier-peach/20 hover:border-navier-sage/50 transition-colors flex flex-col"
           >
             <time
               dateTime={post.isoDate}
@@ -30,16 +56,25 @@ export default function BlogIndex() {
             >
               {post.date}
             </time>
-            <h2 className="text-2xl font-serif text-navier-green mb-4">{post.title}</h2>
-            <p className="text-gray-600 mb-6 text-justify leading-relaxed">{post.excerpt}</p>
+            
+            <h2 className="text-2xl font-serif text-navier-green mb-4 hover:text-navier-sage transition-colors">
+              <Link href={`/novo-blog/${post.slug}`}>
+                {post.title}
+              </Link>
+            </h2>
+            
+            <p className="text-gray-600 mb-6 text-left md:text-justify hyphens-auto leading-relaxed flex-grow">
+              {post.excerpt}
+            </p>
 
-            <Link
-              href={`/novo-blog/${post.slug}`}
-              aria-label={`Ler o artigo: ${post.title}`}
-              className="text-navier-green border-b border-navier-green font-semibold text-xs uppercase tracking-wider hover:text-navier-peach hover:border-navier-peach transition-colors pb-1 inline-block"
-            >
-              Ler artigo completo
-            </Link>
+            <div>
+              <Link
+                href={`/novo-blog/${post.slug}`}
+                className="text-navier-green border-b border-navier-green font-semibold text-xs uppercase tracking-wider hover:text-navier-peach hover:border-navier-peach transition-colors pb-1 inline-block"
+              >
+                Ler guia completo &rarr;
+              </Link>
+            </div>
           </article>
         ))}
       </div>

@@ -9,7 +9,7 @@ export default function MetodoV60() {
             Reconhecido mundialmente pelo seu ângulo de 60 graus e ranhuras espirais, o método V60 não é apenas design — é engenharia fluida. Ele permite que a água flua na velocidade ideal, dando a você controle absoluto sobre o tempo de extração.
           </p>
           <p className="text-gray-600 mb-8 leading-relaxed text-justify">
-            Mas a verdadeira diferença reside no <strong>papel</strong>. Os nossos filtros NAVIER são fabricados com especificações rigorosas para não reterem os óleos naturais do café, nem deixarem gosto residual de celulose. O resultado é uma xícara cristalina, onde todas as notas do grão brilham. Tudo isto integrado no nosso <strong>Kit Barista</strong>, pensado com uma estética <em>Nature-Tech</em> para ser a estrela da bancada da sua casa ou para acompanhar você, de forma compacta, em viagens.
+            Mas a verdadeira diferença reside no <strong>papel</strong>. Os nossos filtros NAVIER são fabricados com especificações rigorosas para não reterem os óleos naturais do café, nem deixarem gosto residual de celulose. O resultado é uma xícara cristalina, onde todas as notas do grão brilham. Tudo isso integrado ao nosso <strong>Kit Barista</strong>, pensado com uma estética <em>Nature-Tech</em> para ser a estrela da bancada da sua casa ou para acompanhar você, de forma compacta, em viagens.
           </p>
           <div className="text-center md:text-left">
             <a href="#produtos" className="inline-block border border-navier-green text-navier-green px-8 py-3 uppercase tracking-wider text-xs font-semibold hover:bg-navier-green hover:text-white transition-colors">

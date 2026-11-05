@@ -7,6 +7,5 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://www.navierpremium.com.br/sitemap.xml",
-    host: "https://www.navierpremium.com.br",
   };
 }

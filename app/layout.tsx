@@ -4,12 +4,12 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
-  variable: "--font-serif",
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -61,9 +61,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`scroll-smooth ${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body
-        className={`${inter.className} min-h-full flex flex-col font-sans bg-white text-gray-900`}
-      >
+      <body className="min-h-full flex flex-col font-sans bg-white text-gray-900">
         {children}
         <GoogleAnalytics gaId="G-160ZGS3E85" />
       </body>
