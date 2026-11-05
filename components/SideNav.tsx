@@ -39,7 +39,7 @@ export default function SideNav() {
   }, []);
 
   return (
-    <nav className="hidden md:flex fixed left-6 top-1/2 transform -translate-y-1/2 flex-col gap-5 z-50">
+    <nav aria-label="Seções da página" className="hidden md:flex fixed left-6 top-1/2 transform -translate-y-1/2 flex-col gap-5 z-50">
       {sections.map((section) => {
         const isActive = activeSection === section.id;
         
@@ -53,16 +53,16 @@ export default function SideNav() {
             <div
               className={`w-2 rounded-full transition-all duration-500 ${
                 isActive
-                  ? 'bg-[#EABEA9] h-8' 
-                  : 'bg-gray-200 dark:bg-gray-600 h-2 group-hover:bg-[#8FA98C] dark:group-hover:bg-[#EABEA9]'
+                  ? 'bg-navier-peach h-8' 
+                  : 'bg-gray-200 h-2 group-hover:bg-navier-sage'
               }`}
             />
             {/* Texto adaptado para modo escuro */}
             <span 
               className={`text-[10px] uppercase tracking-widest transition-all duration-300 origin-left ${
                 isActive 
-                  ? 'text-[#1F5455] dark:text-[#EABEA9] font-bold scale-105' 
-                  : 'text-gray-400 dark:text-gray-500 font-medium group-hover:text-[#8FA98C] dark:group-hover:text-white'
+                  ? 'text-navier-green font-bold scale-105' 
+                  : 'text-gray-400 font-medium group-hover:text-navier-sage'
               }`}
             >
               {section.label}
@@ -72,9 +72,9 @@ export default function SideNav() {
       })}
 
       <Link href="/novo-blog" className="group flex items-center justify-start gap-3 cursor-pointer mt-4">
-        <div className="w-2 rounded-full transition-all duration-500 bg-gray-200 dark:bg-gray-600 h-2 group-hover:bg-[#1F5455] dark:group-hover:bg-[#EABEA9]" />
-        <span className="text-[10px] uppercase tracking-widest transition-all duration-300 origin-left text-gray-400 dark:text-gray-500 font-medium group-hover:text-[#1F5455] dark:group-hover:text-white group-hover:font-bold">
-          Journal
+        <div className="w-2 rounded-full transition-all duration-500 bg-gray-200 h-2 group-hover:bg-navier-green" />
+        <span className="text-[10px] uppercase tracking-widest transition-all duration-300 origin-left text-gray-400 font-medium group-hover:text-navier-green group-hover:font-bold">
+          Blog
         </span>
       </Link>
     </nav>

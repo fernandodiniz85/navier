@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 
 const siteUrl = "https://www.navierpremium.com.br";
 const articlePath = "/novo-blog/kit-basico-cafe-especial";
 const articleUrl = `${siteUrl}${articlePath}`;
+const articleImage = "/kit-cafe.jpeg";
+const publishedAt = "2026-11-03T09:00:00-03:00";
+const modifiedAt = "2026-11-03T09:00:00-03:00";
 
-const articleTitle =
-  "O Que Comprar para Começar no Café Especial? Kit Básico e Econômico";
+const articleTitle = "Kit Básico de Café Especial: O Que Comprar para Começar";
 
 const articleDescription =
   "Descubra quais equipamentos comprar para fazer café especial em casa sem gastar muito. Compare V60, prensa manual, moedor e acessórios essenciais.";
 
 export const metadata: Metadata = {
-  title: articleTitle,
+  // "absolute" evita acrescentar " | Navier" e estourar ~60 caracteres no Google
+  title: { absolute: articleTitle },
   description: articleDescription,
   alternates: {
     canonical: articleUrl,
@@ -21,10 +24,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     locale: "pt_BR",
-    siteName: "Navier Premium",
+    siteName: "Navier",
     title: articleTitle,
     description: articleDescription,
     url: articleUrl,
+    publishedTime: publishedAt,
+    modifiedTime: modifiedAt,
+    authors: ["Fernando Garcia Diniz"],
+    images: [
+      {
+        url: articleImage,
+        width: 800,
+        height: 500,
+        alt: "Kit básico de equipamentos e acessórios para preparo de café especial em casa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: articleTitle,
+    description: articleDescription,
+    images: [articleImage],
   },
   robots: {
     index: true,
@@ -38,9 +58,13 @@ const articleSchema = {
   headline: articleTitle,
   description: articleDescription,
   inLanguage: "pt-BR",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: [`${siteUrl}${articleImage}`],
   author: {
     "@type": "Person",
-    name: "Fernando Garcia Diniz"
+    name: "Fernando Garcia Diniz",
+    url: siteUrl,
   },
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -48,8 +72,13 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "Navier Premium",
+    "@id": `${siteUrl}/#organization`,
+    name: "Navier",
     url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/og-image.png`,
+    },
   },
 };
 
@@ -98,27 +127,29 @@ export default function KitBasicoCafeEspecialPage() {
 
       <article className="max-w-3xl mx-auto py-24 px-6 bg-white font-sans">
         
-        {/* Botão de retorno ao Journal no topo esquerdo */}
+        {/* Botão de retorno ao Blog no topo esquerdo */}
         <div className="mb-8">
           <Link 
             href="/novo-blog" 
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1F5455] hover:text-[#8FA98C] transition-colors bg-[#F9F9F9] border border-[#EABEA9]/40 px-4 py-2 rounded"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navier-green hover:text-navier-sage transition-colors bg-navier-bg border border-navier-peach/40 px-4 py-2 rounded"
           >
-            ← Voltar ao Journal
+            ← Voltar ao Blog
           </Link>
         </div>
 
         <header className="mb-12 text-center">
-          <p className="text-[#8FA98C] text-xs font-bold tracking-widest uppercase mb-4">
+          <p className="text-navier-sage text-xs font-bold tracking-widest uppercase mb-4">
             Guia para Iniciantes
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-serif text-[#1F5455] mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-serif text-navier-green mb-6 leading-tight">
             {articleTitle}
           </h1>
           
           <div className="flex justify-center items-center gap-4 text-sm text-gray-500 mb-8">
-            <span className="font-semibold text-[#1F5455]">Por Fernando Garcia Diniz</span>
+            <span className="font-semibold text-navier-green">Por Fernando Garcia Diniz</span>
+            <span>•</span>
+            <time dateTime="2026-11-03">3 de novembro de 2026</time>
             <span>•</span>
             <span>Leitura Técnica</span>
           </div>
@@ -133,6 +164,7 @@ export default function KitBasicoCafeEspecialPage() {
 
         {/* Imagem de Destaque */}
         <Image 
+          priority
           src="/kit-cafe.jpeg" 
           alt="Kit básico de equipamentos e acessórios para preparo de café especial em casa" 
           width={800} 
@@ -143,24 +175,24 @@ export default function KitBasicoCafeEspecialPage() {
         {/* Sumário / Índice estilizado */}
         <nav
           aria-label="Neste artigo"
-          className="mb-12 rounded bg-[#F9F9F9] border border-[#EABEA9]/30 p-6"
+          className="mb-12 rounded bg-navier-bg border border-navier-peach/30 p-6"
         >
-          <p className="mb-4 font-serif text-[#1F5455] text-base font-semibold">Neste artigo</p>
+          <p className="mb-4 font-serif text-navier-green text-base font-semibold">Neste artigo</p>
           <ul className="list-inside list-disc space-y-2 text-sm text-gray-600">
-            <li><a href="#por-onde-comecar" className="hover:text-[#1F5455] transition-colors">Por onde começar</a></li>
-            <li><a href="#moedor" className="hover:text-[#1F5455] transition-colors">Moedor de café</a></li>
-            <li><a href="#metodo" className="hover:text-[#1F5455] transition-colors">Escolhendo o método de preparo</a></li>
-            <li><a href="#filtros" className="hover:text-[#1F5455] transition-colors">Filtros de papel</a></li>
-            <li><a href="#balanca" className="hover:text-[#1F5455] transition-colors">Balança digital</a></li>
-            <li><a href="#chaleira" className="hover:text-[#1F5455] transition-colors">Chaleira de bico fino</a></li>
-            <li><a href="#receita" className="hover:text-[#1F5455] transition-colors">Receita para começar</a></li>
-            <li><a href="#faq" className="hover:text-[#1F5455] transition-colors">Perguntas frequentes</a></li>
+            <li><a href="#por-onde-comecar" className="hover:text-navier-green transition-colors">Por onde começar</a></li>
+            <li><a href="#moedor" className="hover:text-navier-green transition-colors">Moedor de café</a></li>
+            <li><a href="#metodo" className="hover:text-navier-green transition-colors">Escolhendo o método de preparo</a></li>
+            <li><a href="#filtros" className="hover:text-navier-green transition-colors">Filtros de papel</a></li>
+            <li><a href="#balanca" className="hover:text-navier-green transition-colors">Balança digital</a></li>
+            <li><a href="#chaleira" className="hover:text-navier-green transition-colors">Chaleira de bico fino</a></li>
+            <li><a href="#receita" className="hover:text-navier-green transition-colors">Receita para começar</a></li>
+            <li><a href="#faq" className="hover:text-navier-green transition-colors">Perguntas frequentes</a></li>
           </ul>
         </nav>
 
-        <div className="prose prose-lg max-w-none text-gray-700 text-justify">
+        <div className="text-gray-700 text-justify">
           <section id="por-onde-comecar" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               Você não precisa de equipamentos caros
             </h2>
 
@@ -183,7 +215,7 @@ export default function KitBasicoCafeEspecialPage() {
               necessidade real.
             </p>
 
-            <p className="mb-3 font-semibold text-[#1F5455]">
+            <p className="mb-3 font-semibold text-navier-green">
               Para começar, priorize estes itens:
             </p>
 
@@ -203,7 +235,7 @@ export default function KitBasicoCafeEspecialPage() {
           </section>
 
           <section id="moedor" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               1. Moedor manual: mais controle sobre a moagem
             </h2>
 
@@ -226,7 +258,7 @@ export default function KitBasicoCafeEspecialPage() {
               isoladamente, não determina a qualidade da moagem.
             </p>
 
-            <p className="p-4 bg-[#F9F9F9] border-l-4 border-[#8FA98C] text-sm leading-relaxed text-gray-600">
+            <p className="p-4 bg-navier-bg border-l-4 border-navier-sage text-sm leading-relaxed text-gray-600">
               <strong>Dica econômica:</strong> se o orçamento estiver muito
               limitado, comece com café recém-torrado de um fornecedor confiável,
               moído próximo da data de consumo. Você poderá investir no moedor
@@ -235,7 +267,7 @@ export default function KitBasicoCafeEspecialPage() {
           </section>
 
           <section id="metodo" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               2. Escolha um método de preparo que combine com você
             </h2>
 
@@ -245,7 +277,7 @@ export default function KitBasicoCafeEspecialPage() {
               máquina elétrica, mas oferecem experiências diferentes.
             </p>
 
-            <h3 className="text-2xl font-serif text-[#1F5455] mt-8 mb-4">
+            <h3 className="text-2xl font-serif text-navier-green mt-8 mb-4">
               Hario V60: para quem gosta de café filtrado
             </h3>
 
@@ -257,7 +289,7 @@ export default function KitBasicoCafeEspecialPage() {
               são importantes.
             </p>
 
-            <h3 className="text-2xl font-serif text-[#1F5455] mt-8 mb-4">
+            <h3 className="text-2xl font-serif text-navier-green mt-8 mb-4">
               Prensa Manual Portátil: praticidade e versatilidade
             </h3>
 
@@ -269,7 +301,7 @@ export default function KitBasicoCafeEspecialPage() {
                 href="https://www.mercadolivre.com.br/pagina/navier_premium"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-[#1F5455] font-semibold"
+                className="underline text-navier-green font-semibold"
               >
                 loja oficial
               </a>
@@ -279,7 +311,7 @@ export default function KitBasicoCafeEspecialPage() {
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#1F5455] text-white">
+                  <tr className="bg-navier-green text-white">
                     <th scope="col" className="p-4 font-semibold text-sm">Critério</th>
                     <th scope="col" className="p-4 font-semibold text-sm">V60</th>
                     <th scope="col" className="p-4 font-semibold text-sm">Prensa Manual</th>
@@ -302,19 +334,19 @@ export default function KitBasicoCafeEspecialPage() {
           </section>
 
           <section id="filtros" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               3. Filtros de papel: escolha o modelo correto
             </h2>
             <p className="mb-4">
               Se você escolher o V60, o filtro é parte importante do sistema.
               Não basta comprar qualquer papel com formato parecido: ele precisa
               ser compatível com o tamanho e o modelo do suporte. Conheça os{" "}
-              <a href="https://www.mercadolivre.com.br/filtro-papel-japones-v60-02-branco-para-cafe--caixa-com-100/up/MLBU5688947390?pdp_filters=item_id:MLB7881561608" target="_blank" rel="noopener noreferrer" className="underline text-[#1F5455] font-semibold">Filtros V60 Navier</a>.
+              <a href="https://www.mercadolivre.com.br/filtro-papel-japones-v60-02-branco-para-cafe--caixa-com-100/up/MLBU5688947390?pdp_filters=item_id:MLB7881561608" target="_blank" rel="noopener noreferrer" className="underline text-navier-green font-semibold">Filtros V60 Navier</a>.
             </p>
           </section>
 
           <section id="balanca" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               4. Balança digital: o acessório que ajuda a repetir bons resultados
             </h2>
             <p className="mb-4">
@@ -325,11 +357,11 @@ export default function KitBasicoCafeEspecialPage() {
           </section>
 
           <section id="receita" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               Receita simples para seu primeiro café
             </h2>
-            <div className="mb-6 rounded bg-[#F9F9F9] border border-[#EABEA9]/40 p-6">
-              <h3 className="mb-3 font-serif text-lg text-[#1F5455] font-bold">
+            <div className="mb-6 rounded bg-navier-bg border border-navier-peach/40 p-6">
+              <h3 className="mb-3 font-serif text-lg text-navier-green font-bold">
                 Receita de referência (V60)
               </h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-600 text-sm">
@@ -341,15 +373,15 @@ export default function KitBasicoCafeEspecialPage() {
           </section>
 
           <section id="faq" className="mb-12">
-            <h2 className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 className="text-3xl font-serif text-navier-green mb-6">
               Perguntas frequentes
             </h2>
             <div className="space-y-4">
               {faqItems.map((item) => (
                 <details key={item.question} className="group border border-gray-200 rounded-sm p-4 cursor-pointer">
-                  <summary className="font-semibold text-[#1F5455] list-none flex justify-between items-center">
+                  <summary className="font-semibold text-navier-green list-none flex justify-between items-center">
                     {item.question}
-                    <span className="transition group-open:rotate-180 text-[#EABEA9]">▼</span>
+                    <span className="transition group-open:rotate-180 text-navier-peach">▼</span>
                   </summary>
                   <p className="mt-4 text-gray-600 text-sm leading-relaxed">{item.answer}</p>
                 </details>
@@ -359,11 +391,11 @@ export default function KitBasicoCafeEspecialPage() {
         </div>
 
         {/* CTA Comercial Inferior (redireciona para a loja no Mercado Livre) */}
-        <aside aria-labelledby="cta-title" className="bg-[#1F5455] p-8 md:p-12 text-center mt-12 shadow-lg">
+        <aside aria-labelledby="cta-title" className="bg-navier-green p-8 md:p-12 text-center mt-12 shadow-lg">
           <h2 id="cta-title" className="text-2xl md:text-3xl font-serif text-white mb-4">
             Eleve o seu ritual do café
           </h2>
-          <p className="text-[#EABEA9] mb-8 max-w-xl mx-auto text-sm leading-relaxed">
+          <p className="text-navier-peach mb-8 max-w-xl mx-auto text-sm leading-relaxed">
             Explore os equipamentos e acessórios da Navier e comece a extrair o melhor de cada grão hoje mesmo.
           </p>
           
@@ -372,7 +404,7 @@ export default function KitBasicoCafeEspecialPage() {
               href="https://www.mercadolivre.com.br/filtro-papel-japones-v60-02-branco-para-cafe--caixa-com-100/up/MLBU5688947390?pdp_filters=item_id:MLB7881561608"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#EABEA9] text-[#1F5455] font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
+              className="bg-navier-peach text-navier-green font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
             >
               Filtros V60 Original
             </a>
@@ -380,7 +412,7 @@ export default function KitBasicoCafeEspecialPage() {
               href="https://www.mercadolivre.com.br/cafeteira-portatil-manual-pressao-tipo-aeropress--filtros/up/MLBU5688554314?pdp_filters=item_id:MLB7881402892"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#EABEA9] text-[#EABEA9] font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-[#EABEA9] hover:text-[#1F5455] transition-colors"
+              className="border border-navier-peach text-navier-peach font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-navier-peach hover:text-navier-green transition-colors"
             >
               Prensa Manual Portátil
             </a>

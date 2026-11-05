@@ -1,27 +1,50 @@
 import type { Metadata } from "next";
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 
 const siteUrl = "https://www.navierpremium.com.br";
+const articlePath = "/novo-blog/cafe-em-graos-ou-moido";
+const articleUrl = `${siteUrl}${articlePath}`;
+const articleImage = "/moagem-cafe.jpeg";
+const publishedAt = "2026-11-03T09:00:00-03:00";
+const modifiedAt = "2026-11-03T09:00:00-03:00";
+
 const articleTitle = "Café em Grãos ou Moído: Por Que Moer na Hora Faz Diferença?";
+
 const articleDescription =
-  "Descubra por que moer café na hora preserva melhor os aromas, " +
-  "como o frescor influencia a extração e como preparar um café " +
-  "melhor em casa ou durante viagens.";
+  "Descubra por que moer café na hora preserva melhor os aromas, como o frescor influencia a extração e como preparar um café melhor em casa ou durante viagens.";
 
 export const metadata: Metadata = {
-  title: articleTitle,
+  // "absolute" evita acrescentar " | Navier" e estourar ~60 caracteres no Google
+  title: { absolute: articleTitle },
   description: articleDescription,
   alternates: {
-    canonical: `${siteUrl}/novo-blog/cafe-em-graos-ou-moido`,
+    canonical: articleUrl,
   },
   openGraph: {
     type: "article",
     locale: "pt_BR",
-    siteName: "Navier Premium",
+    siteName: "Navier",
     title: articleTitle,
     description: articleDescription,
-    url: `${siteUrl}/novo-blog/cafe-em-graos-ou-moido`,
+    url: articleUrl,
+    publishedTime: publishedAt,
+    modifiedTime: modifiedAt,
+    authors: ["Fernando Garcia Diniz"],
+    images: [
+      {
+        url: articleImage,
+        width: 800,
+        height: 500,
+        alt: "Grãos de café recém-torrados sendo moídos manualmente ao lado de um método de extração filtrado",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: articleTitle,
+    description: articleDescription,
+    images: [articleImage],
   },
   robots: {
     index: true,
@@ -35,18 +58,27 @@ const articleSchema = {
   headline: articleTitle,
   description: articleDescription,
   inLanguage: "pt-BR",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: [`${siteUrl}${articleImage}`],
   author: {
     "@type": "Person",
-    name: "Fernando Garcia Diniz"
+    name: "Fernando Garcia Diniz",
+    url: siteUrl,
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `${siteUrl}/novo-blog/cafe-em-graos-ou-moido`,
+    "@id": articleUrl,
   },
   publisher: {
     "@type": "Organization",
-    name: "Navier Premium",
+    "@id": `${siteUrl}/#organization`,
+    name: "Navier",
     url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/og-image.png`,
+    },
   },
 };
 
@@ -104,27 +136,29 @@ export default function CafeEmGraosOuMoidoPage() {
 
       <article className="max-w-3xl mx-auto py-24 px-6 bg-white font-sans">
         
-        {/* Botão de retorno ao Journal no topo esquerdo */}
+        {/* Botão de retorno ao Blog no topo esquerdo */}
         <div className="mb-8">
           <Link 
             href="/novo-blog" 
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1F5455] hover:text-[#8FA98C] transition-colors bg-[#F9F9F9] border border-[#EABEA9]/40 px-4 py-2 rounded"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navier-green hover:text-navier-sage transition-colors bg-navier-bg border border-navier-peach/40 px-4 py-2 rounded"
           >
-            ← Voltar ao Journal
+            ← Voltar ao Blog
           </Link>
         </div>
 
         <header className="mb-12 text-center">
-          <p className="text-[#8FA98C] text-xs font-bold tracking-widest uppercase mb-4">
+          <p className="text-navier-sage text-xs font-bold tracking-widest uppercase mb-4">
             Guia do Café
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-serif text-[#1F5455] mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-serif text-navier-green mb-6 leading-tight">
             {articleTitle}
           </h1>
           
           <div className="flex justify-center items-center gap-4 text-sm text-gray-500 mb-8">
-            <span className="font-semibold text-[#1F5455]">Por Fernando Garcia Diniz</span>
+            <span className="font-semibold text-navier-green">Por Fernando Garcia Diniz</span>
+            <span>•</span>
+            <time dateTime="2026-11-03">3 de novembro de 2026</time>
             <span>•</span>
             <span>Leitura Técnica</span>
           </div>
@@ -139,6 +173,7 @@ export default function CafeEmGraosOuMoidoPage() {
         </header>
 
         <Image 
+          priority
           src="/moagem-cafe.jpeg" 
           alt="Grãos de café recém-torrados sendo moídos manualmente ao lado de um método de extração filtrado" 
           width={800} 
@@ -146,9 +181,9 @@ export default function CafeEmGraosOuMoidoPage() {
           className="w-full h-auto object-cover rounded-sm mb-12 shadow-sm"
         />
 
-        <div className="prose prose-lg max-w-none text-gray-700 text-justify">
+        <div className="text-gray-700 text-justify">
           <section aria-labelledby="resposta-direta" className="mb-12">
-            <h2 id="resposta-direta" className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 id="resposta-direta" className="text-3xl font-serif text-navier-green mb-6">
               Café em grãos ou moído: qual é a melhor opção?
             </h2>
             <p className="mb-4">
@@ -167,7 +202,7 @@ export default function CafeEmGraosOuMoidoPage() {
           </section>
 
           <section aria-labelledby="aroma" className="mb-12">
-            <h2 id="aroma" className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 id="aroma" className="text-3xl font-serif text-navier-green mb-6">
               Por que o café moído perde o aroma mais rapidamente?
             </h2>
             <p className="mb-4">
@@ -178,7 +213,7 @@ export default function CafeEmGraosOuMoidoPage() {
               do grão e expõe uma área exponencialmente maior ao ambiente.
             </p>
             
-            <h3 className="text-2xl font-serif text-[#1F5455] mt-8 mb-4">O que acontece dentro do grão durante a moagem?</h3>
+            <h3 className="text-2xl font-serif text-navier-green mt-8 mb-4">O que acontece dentro do grão durante a moagem?</h3>
             <ul className="list-disc pl-6 mb-6 space-y-2">
               <li>
                 <strong>Maior superfície de contato:</strong> mais áreas do café ficam expostas ao ar.
@@ -196,7 +231,7 @@ export default function CafeEmGraosOuMoidoPage() {
           </section>
 
           <section aria-labelledby="bloom" className="mb-12">
-            <h2 id="bloom" className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 id="bloom" className="text-3xl font-serif text-navier-green mb-6">
               O que é bloom e por que o frescor influencia a extração?
             </h2>
             <p className="mb-4">
@@ -211,13 +246,13 @@ export default function CafeEmGraosOuMoidoPage() {
           </section>
 
           <section aria-labelledby="graos-ou-po" className="mb-12">
-            <h2 id="graos-ou-po" className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 id="graos-ou-po" className="text-3xl font-serif text-navier-green mb-6">
               Café em grãos ou café moído: qual vale mais a pena?
             </h2>
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#1F5455] text-white">
+                  <tr className="bg-navier-green text-white">
                     <th scope="col" className="p-4 font-semibold text-sm">Critério</th>
                     <th scope="col" className="p-4 font-semibold text-sm">Café em grãos</th>
                     <th scope="col" className="p-4 font-semibold text-sm">Café moído</th>
@@ -240,15 +275,15 @@ export default function CafeEmGraosOuMoidoPage() {
           </section>
 
           <section aria-labelledby="faq" className="mb-12">
-            <h2 id="faq" className="text-3xl font-serif text-[#1F5455] mb-6">
+            <h2 id="faq" className="text-3xl font-serif text-navier-green mb-6">
               Perguntas frequentes
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <details key={faq.question} className="group border border-gray-200 rounded-sm p-4 cursor-pointer">
-                  <summary className="font-semibold text-[#1F5455] list-none flex justify-between items-center">
+                  <summary className="font-semibold text-navier-green list-none flex justify-between items-center">
                     {faq.question}
-                    <span className="transition group-open:rotate-180 text-[#EABEA9]">▼</span>
+                    <span className="transition group-open:rotate-180 text-navier-peach">▼</span>
                   </summary>
                   <p className="mt-4 text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                 </details>
@@ -261,11 +296,11 @@ export default function CafeEmGraosOuMoidoPage() {
           </div>
         </div>
 
-        <aside aria-labelledby="cta-title" className="bg-[#1F5455] p-8 md:p-12 text-center mt-12 shadow-lg">
+        <aside aria-labelledby="cta-title" className="bg-navier-green p-8 md:p-12 text-center mt-12 shadow-lg">
           <h2 id="cta-title" className="text-2xl md:text-3xl font-serif text-white mb-4">
             Leve sua experiência para o próximo nível
           </h2>
-          <p className="text-[#EABEA9] mb-8 max-w-xl mx-auto text-sm leading-relaxed">
+          <p className="text-navier-peach mb-8 max-w-xl mx-auto text-sm leading-relaxed">
             Seja para extrair o máximo do método V60 em casa ou garantir uma bebida encorpada em viagens, a granulometria correta e o equipamento adequado são fundamentais.
           </p>
           
@@ -274,7 +309,7 @@ export default function CafeEmGraosOuMoidoPage() {
               href="https://www.mercadolivre.com.br/filtro-papel-japones-v60-02-branco-para-cafe--caixa-com-100/up/MLBU5688947390?pdp_filters=item_id:MLB7881561608"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#EABEA9] text-[#1F5455] font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
+              className="bg-navier-peach text-navier-green font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-white transition-colors"
             >
               Filtros V60 Original
             </a>
@@ -282,9 +317,9 @@ export default function CafeEmGraosOuMoidoPage() {
               href="https://www.mercadolivre.com.br/cafeteira-portatil-manual-pressao-tipo-aeropress--filtros/up/MLBU5688554314?pdp_filters=item_id:MLB7881402892"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#EABEA9] text-[#EABEA9] font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-[#EABEA9] hover:text-[#1F5455] transition-colors"
+              className="border border-navier-peach text-navier-peach font-bold px-6 py-4 uppercase tracking-wider text-xs hover:bg-navier-peach hover:text-navier-green transition-colors"
             >
-              Cafeteira AeroPress
+              Prensa Manual Portátil
             </a>
           </div>
         </aside>

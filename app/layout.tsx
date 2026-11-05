@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -13,24 +13,41 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://www.navierpremium.com.br";
+
 export const metadata: Metadata = {
-  title: "NAVIER | Equipamentos Nature-Tech para Baristas",
-  description: "Eleve o seu ritual do café. Equipamentos premium, precisão técnica e curadoria rigorosa para entusiastas e baristas.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Navier | Filtro V60, Prensa Manual e Kit para Café Especial",
+    template: "%s | Navier",
+  },
+  description:
+    "Marca carioca de equipamentos para café especial: filtros V60, prensa manual portátil e kit barista. Entrega para todo o Brasil pelo Mercado Livre.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "NAVIER | Equipamentos Premium",
-    description: "Precisão técnica e formas orgânicas. Extraia o melhor de cada grão.",
-    url: "https://www.navierpremium.com.br",
-    siteName: "NAVIER",
+    title: "Navier | Equipamentos para Café Especial",
+    description:
+      "Filtros V60, prensa manual portátil e kit barista para extrair o melhor de cada grão.",
+    url: siteUrl,
+    siteName: "Navier",
     images: [
       {
-        url: "https://www.navierpremium.com.br/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Logótipo NAVIER",
+        alt: "Navier: equipamentos para café especial",
       },
     ],
     locale: "pt_BR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Navier | Equipamentos para Café Especial",
+    description: "Filtros V60, prensa manual portátil e kit barista.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -40,8 +57,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`scroll-smooth ${inter.variable} ${playfair.variable} h-full antialiased`}>
-      <body className={`${inter.className} min-h-full flex flex-col font-sans bg-[#FFFFFF] text-gray-900`}>
+    <html
+      lang="pt-BR"
+      className={`scroll-smooth ${inter.variable} ${playfair.variable} h-full antialiased`}
+    >
+      <body
+        className={`${inter.className} min-h-full flex flex-col font-sans bg-white text-gray-900`}
+      >
         {children}
         <GoogleAnalytics gaId="G-160ZGS3E85" />
       </body>
