@@ -26,4 +26,13 @@ export const posts = [
     date: "3 de novembro de 2026",
     isoDate: "2026-11-03",
   },
+  {
+    id: "4",
+    slug: "guia-v60-tempo-e-temperatura",
+    title: "Guia Prático da V60: Domine o Tempo e Dê Adeus ao Café Amargo",
+    excerpt:
+      "Descubra como controlar o tempo de extração, a temperatura da água e a qualidade do filtro para evitar o amargor no método cônico V60.",
+    date: "5 de novembro de 2026",
+    isoDate: "2026-11-05",
+  }
 ];

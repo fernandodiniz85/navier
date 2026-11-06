@@ -14,6 +14,7 @@ const inter = Inter({
 });
 
 const siteUrl = "https://www.navierpremium.com.br";
+const siteDescription = "Marca carioca de equipamentos para café especial: prensa manual portátil, kit barista e filtros de papel de alta performance compatíveis com Hario V60.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,15 +22,13 @@ export const metadata: Metadata = {
     default: "Navier | Filtro V60, Prensa Manual e Kit para Café Especial",
     template: "%s | Navier",
   },
-  description:
-    "Marca carioca de equipamentos para café especial: filtros V60, prensa manual portátil e kit barista. Entrega para todo o Brasil pelo Mercado Livre.",
+  description: siteDescription,
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Navier | Equipamentos para Café Especial",
-    description:
-      "Filtros V60, prensa manual portátil e kit barista para extrair o melhor de cada grão.",
+    description: siteDescription,
     url: siteUrl,
     siteName: "Navier",
     images: [
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Navier | Equipamentos para Café Especial",
-    description: "Filtros V60, prensa manual portátil e kit barista.",
+    description: siteDescription,
     images: ["/og-image.png"],
   },
 };

@@ -19,7 +19,7 @@ export default function Products() {
             <div className="relative w-full aspect-square bg-navier-bg mb-6 overflow-hidden">
                <Image
               src="/kit.jpg"
-              alt="Kit Barista Navier para preparo de café V60 em casa"
+              alt="Kit Barista Navier para extração de café especial cônico"
               fill
               sizes="(min-width: 768px) 33vw, 100vw"
               className="object-cover hover:scale-105 transition-transform duration-500"
@@ -27,19 +27,19 @@ export default function Products() {
             </div>
             <h3 className="text-xl font-serif text-navier-green tracking-widest mb-2 uppercase">Kit Barista Navier</h3>
             <p className="text-gray-600 mb-6 text-sm px-4 leading-relaxed">
-              Versatilidade e precisão. O conjunto definitivo para o entusiasta dominar a extração em casa.
+              Versatilidade e precisão. O conjunto definitivo para o entusiasta dominar a extração em casa com excelência.
             </p>
             <a href="https://www.mercadolivre.com.br/pagina/navier_premium" target="_blank" rel="noopener noreferrer" aria-label="Comprar o Kit Barista Navier na loja Navier do Mercado Livre" className="btn-outline">
               Comprar na Loja
             </a>
           </div>
 
-          {/* Produto 2: Filtros V60 */}
+          {/* Produto 2: Filtros V60 (Aplicação SEO Método 1 e 4) */}
           <div className="flex flex-col items-center text-center">
             <div className="relative w-full aspect-square bg-navier-bg mb-6 overflow-hidden">
                <Image
               src="/filtro.jpg"
-              alt="Filtros de papel V60 02 Navier, caixa com 100 unidades"
+              alt="Filtros de papel especial Navier, 100% compatíveis com suporte Hario V60 tamanho 02"
               fill
               sizes="(min-width: 768px) 33vw, 100vw"
               className="object-cover hover:scale-105 transition-transform duration-500"
@@ -47,7 +47,7 @@ export default function Products() {
             </div>
             <h3 className="text-xl font-serif text-navier-green tracking-widest mb-2 uppercase">Filtros V60 Navier</h3>
             <p className="text-gray-600 mb-6 text-sm px-4 leading-relaxed">
-              Qualidade japonesa superior. Extração limpa e uniforme para destacar as melhores notas do seu café.
+              Papel de alta performance sem gosto residual. Com angulação perfeita, é 100% compatível com o suporte Hario V60.
             </p>
             <a href="https://www.mercadolivre.com.br/filtro-papel-japones-v60-02-branco-para-cafe--caixa-com-100/up/MLBU5688947390?pdp_filters=item_id:MLB7881561608" target="_blank" rel="noopener noreferrer" aria-label="Comprar Filtros V60 Navier no Mercado Livre" className="btn-outline">
               Comprar no Mercado Livre

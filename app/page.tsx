@@ -10,23 +10,23 @@ import Faq from "../components/Faq";
 import Footer from "../components/Footer";
 
 const siteUrl = "https://www.navierpremium.com.br";
+const siteDescription = "Marca carioca de equipamentos para café especial: prensa manual portátil, kit barista e filtros de papel de alta performance compatíveis com Hario V60.";
 
-// Dados estruturados (SEO/GEO): lidos por Google, Bing e plataformas de IA.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "OnlineStore"],
       "@id": `${siteUrl}/#organization`,
       name: "Navier",
       legalName: "NAVIER Premium",
+      taxID: "66.569.194/0001-59",
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
         url: `${siteUrl}/og-image.png`,
       },
-      description:
-        "Marca carioca de equipamentos para café especial: filtros V60, prensa manual portátil e kit barista.",
+      description: siteDescription,
       email: "navierpremium@gmail.com",
       telephone: "+55-21-96741-7992",
       address: {
