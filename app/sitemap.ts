@@ -4,7 +4,7 @@ import { posts } from "./novo-blog/data";
 const siteUrl = "https://www.navierpremium.com.br";
 
 // Atualize esta data manualmente quando alterar o conteúdo da home.
-const homeLastModified = new Date("2026-11-03");
+const homeLastModified = new Date("2026-11-06");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogLastModified = new Date(
