@@ -34,5 +34,13 @@ export const posts = [
       "Descubra como controlar o tempo de extração, a temperatura da água e a qualidade do filtro para evitar o amargor no método cônico V60.",
     date: "5 de novembro de 2026",
     isoDate: "2026-11-05",
-  }
+  },
+  {
+  id: "5", // Pode seguir a sequência numérica
+  slug: "filtro-japones-v60",
+  title: "Café com Gosto de Papel? Como o Filtro Japonês Salva a Sua Extração na V60",
+  excerpt: "Descubra por que o seu café especial pode estar com gosto de celulose e entenda como o filtro de papel japonês garante uma extração limpa e perfeita na V60.",
+  date: "8 de novembro de 2026",
+  isoDate: "2026-11-08",
+}
 ];
