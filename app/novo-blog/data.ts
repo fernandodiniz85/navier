@@ -36,11 +36,21 @@ export const posts = [
     isoDate: "2026-11-05",
   },
   {
-  id: "5", // Pode seguir a sequência numérica
-  slug: "filtro-japones-v60",
-  title: "Café com Gosto de Papel? Como o Filtro Japonês Salva a Sua Extração na V60",
-  excerpt: "Descubra por que o seu café especial pode estar com gosto de celulose e entenda como o filtro de papel japonês garante uma extração limpa e perfeita na V60.",
-  date: "8 de novembro de 2026",
-  isoDate: "2026-11-08",
-}
+    id: "5",
+    slug: "filtro-japones-v60",
+    title: "Café com Gosto de Papel? Como o Filtro Japonês Salva a Sua Extração na V60",
+    excerpt:
+      "Descubra por que o seu café especial pode estar com gosto de celulose e entenda como o filtro de papel japonês garante uma extração limpa e perfeita na V60.",
+    date: "8 de novembro de 2026",
+    isoDate: "2026-11-08",
+  },
+  {
+    id: "6",
+    slug: "mogiana-ou-chapada-diamantina",
+    title: "Mogiana ou Chapada Diamantina? Como a Região Muda o Sabor do Seu Café",
+    excerpt:
+      "Não sabe qual café especial escolher? Entenda as diferenças de sabor entre a doçura da Mogiana Paulista e a acidez frutada da Chapada Diamantina.",
+    date: "8 de novembro de 2026",
+    isoDate: "2026-11-08",
+  }
 ];
